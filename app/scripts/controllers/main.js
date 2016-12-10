@@ -8,17 +8,16 @@
  * Controller of the crowdsurferApp
  */
 angular.module('crowdsurferApp')
-  .controller('MainCtrl', ['$http', function ($http) {
+  .controller('MainCtrl', ['dataService', function (dataService) {
     var main = this;
     this.sortByAmount = true;
     this.fundingFilter = 'all';
     this.searchTerm = '';
     this.data = [];
-    
-    $http.get('https://s3-eu-west-1.amazonaws.com/crowdsurfer-json-dumps/blockchain-projects.json')
-      .then(function(response){
-        main.data = response.data;
-      });
+
+    dataService.fetch(function(data) {
+      main.data = data;
+    });
     
     this.sortBy = function(){
       if (main.sortByAmount) return '-raised';
