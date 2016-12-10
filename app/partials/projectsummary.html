@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-xs-4">Goal: {{project.goal | currency : summary.currencySymbol(project.currency)}}</div>
       <div class="col-xs-4">Raised: {{project.raised | currency : summary.currencySymbol(project.currency)}}</div>
-      <div class="col-xs-4">Ends: {{project.end_time | momentFromNow}}</div>
+      <div ng-if="project.end_time" class="col-xs-4" title="{{project.end_time | date}}">Ends: {{project.end_time | momentFromNow}}</div>
     </div>
   </div>
 </div>
