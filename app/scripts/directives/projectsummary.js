@@ -13,6 +13,14 @@ angular.module('crowdsurferApp')
       restrict: 'E',
       scope: {
         project: "="
-      }
+      },
+      controller: function(){
+        this.currencySymbol = function(code){
+          if (code == 'GBP') return '£';
+          if (code == 'USD') return '$';
+          return code + " ";
+        };
+      },
+      controllerAs: 'summary'
     };
   });
