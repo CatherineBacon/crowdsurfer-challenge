@@ -14,7 +14,7 @@ var testData = [
     "date": "2015-11-18T16:01:43.310",
     "description": "How Mining Works For most users of cryptocurrencies it is not necessary to understand how the mining process in itself works, but it is fundamentally important to understand that there is a mining process to create the virtual currency. Unlike currencies as we know them today where governments and banks can simply choose to print unlimited amounts (Not saying they do so, just a point), cryptocurrencies has to be mined by users using a mining program that solves sophisticated algorithms in order to release blocks of coins that can go into circulation. This is part that makes the cryptocurrencies unique, as there is nobody who can simply press a button and get unlimited coins. Everybody can compete equally while mining coins, by buying the same equipment as one another.  The different cryptocurrencies uses different types of algorithms in order for the blocks to be released, but in general it is not something that you should be using your computer to do as it takes specific equipment to mine and it will provide you with a huge electricity bill compared to the profits you will be able to make from it. It is also worth noting that the more coins that has been mined from a cryptocurrency, the more difficult it gets to release new blocks and thus get new coins. The algorithms has been made this way, to ensure that all the coins would not be mined instantly and leave room for the currency to stabilize and not be over populated from the beginning, thus not having any significant value for anyone besides the miners.",
     "description_summary": "How Mining Works For most users of cryptocurrencies it is not necessary to understand how the mining process in itself works, but it is fundamentally important to understand that there is a mining process to create the virtual currency. Unlike currencies a",
-    "end_time": "2015-01-29T00:00:00",
+    "end_time": "2016-01-29T00:00:00",
     "funding_type": "E",
     "goal": 0.0,
     "raised": 29.19818,
@@ -88,10 +88,18 @@ var testData = [
 
 angular.module('crowdsurferApp')
   .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    var main = this;
+    this.sortByAmount = true;
+    this.fundingFilter = 'all';
     this.data = testData;
+    this.sortBy = function(){
+      if (main.sortByAmount) return '-raised';
+      return '-end_time';
+    };
+    this.filterBy = function(project){
+      if (main.fundingFilter == 'all') return true;
+      if (main.fundingFilter == 'reward' && project.funding_type == 'R') return true;
+      if (main.fundingFilter == 'equity' && project.funding_type == 'E') return true;
+      return false;
+    };
   });
