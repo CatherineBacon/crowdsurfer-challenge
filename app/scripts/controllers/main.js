@@ -91,12 +91,14 @@ angular.module('crowdsurferApp')
     var main = this;
     this.sortByAmount = true;
     this.fundingFilter = 'all';
+    this.searchTerm = '';
     this.data = testData;
     this.sortBy = function(){
       if (main.sortByAmount) return '-raised';
       return '-end_time';
     };
     this.filterBy = function(project){
+      if (main.searchTerm != '' && !project.title.toLowerCase().includes(main.searchTerm.toLowerCase())) return false;
       if (main.fundingFilter == 'all') return true;
       if (main.fundingFilter == 'reward' && project.funding_type == 'R') return true;
       if (main.fundingFilter == 'equity' && project.funding_type == 'E') return true;
