@@ -16,6 +16,7 @@ angular.module('crowdsurferApp')
       },
       controller: function(){
         this.currencySymbol = function(code){
+          if (!code) return;
           if (code == 'GBP') return '£';
           if (code == 'USD') return '$';
           return code + " ";
