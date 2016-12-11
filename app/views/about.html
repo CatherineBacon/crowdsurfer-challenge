@@ -1,1 +1,30 @@
 <p>This is the about view.</p>
+<div>
+  <h2>Backstory</h2>
+  <p>Crowdsurfer collects data on millions of crowdfunding and peer-to-peer finance projects worldwide on a daily basis. This data is stored in MongoDB and analysed using an Elasticsearch cluster, and the results are used to feed our AngularJS 1.5.x app via a RESTful API.</p>
+  <p></p>
+  <h2>Your Mission</h2>
+  <p>Create a simple AngularJS app that reads and displays a summary of the following snapshot of real project data (based on a query regarding Blockchain technologies):</p>
+  <p></p>
+  <p><a href="https://s3-eu-west-1.amazonaws.com/crowdsurfer-json-dumps/blockchain-projects.json">https://s3-eu-west-1.amazonaws.com/crowdsurfer-json-dumps/blockchain-projects.json</a></p>
+  <p></p>
+  <p>Most of these fields should be self-explanatory apart from 'funding_type', which is either 'R' for a 'rewards' based project (e.g where the funder pledged a reward and is given an appropriate 'reward' based on the size of pledge) or 'E' for an equity-based project (which the funder is typically offered a percentage of the company).</p>
+  <p></p>
+  <p>It's up to you which fields you display in your summary, although I recommend using the 'description_summary' field instead of the 'description' field.</p>
+  <p></p>
+  <p>Some requirements:</p>
+  <ul>
+    <li>The http fetch should be defined as a Service or Factory</li>
+    <li>Your answer should be composed using Components and / or Directives where possible (e.g the project summary should be defined as a reusable directive)</li>
+    <li>The user should be able to sort by "end_time<i>"</i> <b>or</b> the amount "raised<i>"</i> fields</li>
+    <li>The user should be able to filter on the "funding_type": display all projects, display only 'Rewards' projects or display only 'Equity' projects.</li>
+    <li>You should create at least one unit test for your components (using the test framework of your choice)</li>
+  </ul>
+  <h2>Notes</h2>
+  <ol>
+    <li>We use SASS internally to tame the beast that is CSS but feel free to use vanilla CSS</li>
+    <li>We're perfectly happy with you using an AngularJS seed project as your starting point (Yeoman <a href="https://github.com/yeoman/generator-angular">https://github.com/yeoman/generator-angular</a> seems to be the most robust). You can of course just write your own from scratch.
+    </li>
+  </ol>
+  <p></p>
+</div>
