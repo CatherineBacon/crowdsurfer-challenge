@@ -11,9 +11,10 @@ describe('Filter: fundTypeClass', function () {
     fundTypeClass = $filter('fundTypeClass');
   }));
 
-  it('should return the input prefixed with "fundTypeClass filter:"', function () {
-    var text = 'angularjs';
-    expect(fundTypeClass(text)).toBe('fundTypeClass filter: ' + text);
+  it('should return correct class', function () {
+    expect(fundTypeClass("E")).toBe('label-primary');
+    expect(fundTypeClass("R")).toBe('label-warning');
+    expect(fundTypeClass("anything else")).toBe('label-default');
   });
 
 });

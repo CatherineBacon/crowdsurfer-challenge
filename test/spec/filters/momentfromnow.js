@@ -11,9 +11,12 @@ describe('Filter: momentFromNow', function () {
     momentFromNow = $filter('momentFromNow');
   }));
 
-  it('should return the input prefixed with "momentFromNow filter:"', function () {
-    var text = 'angularjs';
-    expect(momentFromNow(text)).toBe('momentFromNow filter: ' + text);
+  it('should return friendly dates', function () {
+    var now = new Date();
+    expect(momentFromNow(now)).toBe('a few seconds ago');
+    var lastYear = now;
+    lastYear.setFullYear(now.getFullYear() - 1);
+    expect(momentFromNow(lastYear)).toBe("a year ago");
   });
 
 });

@@ -12,9 +12,15 @@ describe('Directive: projectSummary', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<project-summary></project-summary>');
+  it('should render correctly', inject(function ($compile) {
+    scope.project = {
+      title: 'test title',
+      funding_type: 'E'
+    };
+    element = '<project-summary project="project"></project-summary>';
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the projectSummary directive');
+    scope.$digest();
+    expect(element.find('panel-title > a').text()).toContain('test title');
+    expect(element.find('panel-title > .label').text()).toContain('Equity');
   }));
 });
