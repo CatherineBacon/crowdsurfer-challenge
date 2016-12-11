@@ -3,19 +3,41 @@
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
   </p>
-
 </div>
 
-<div>
-  <input type="text" ng-model="main.searchTerm" placeholder="Search by project title" class="form-control">
-  Sort by:
-  <toggle ng-model="main.sortByAmount" on="Amount Raised" off="End Date" size="btn"></toggle>
-  Funding type:
-  <select class="form-control" ng-model="main.fundingFilter">
-    <option value="all">Show All</option>
-    <option value="reward">Reward Only</option>
-    <option value="equity">Equity Only</option>
-  </select>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-search"></span>
+      </span>
+      <input type="text" ng-model="main.searchTerm" placeholder="Search by project title" class="form-control">
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-4 form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-6">Sort by: </label>
+      <toggle class="col-sm-6" ng-model="main.sortByAmount" on="Amount Raised" off="End Date" size="btn"></toggle>
+    </div>
+  </div>
+
+  <div class="col-sm-8 form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-4">Funding type:</label>
+      <div class="col-sm-8">
+        <select class="form-control" ng-model="main.fundingFilter">
+          <option value="all">Show All</option>
+          <option value="reward">Reward Only</option>
+          <option value="equity">Equity Only</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row marketing">
